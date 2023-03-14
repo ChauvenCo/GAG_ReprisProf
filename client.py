@@ -26,8 +26,8 @@ if __name__ == '__main__':
     client = Client("127.0.0.1", 8000)
     client.connect()
 
-    option = 0
-    while option != 8:
+    option = "0"
+    while int(option) != 8:
         print(client.receive())
         option = input("Choix : ")
         final = option

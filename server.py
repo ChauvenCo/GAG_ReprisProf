@@ -47,9 +47,10 @@ if __name__ == '__main__':
         application = Application(store, user, persist)
 
     menu = Menu(application)
-    while True:
+    selection = ""
+    while selection != "8":
         server.send(Menu.prompt())
         selection = server.receive()
         menu.request = selection
         server.send(menu._main_entries[selection.split("_")[0]]())
-        persist.save(menu)
+        menu._application.save()
