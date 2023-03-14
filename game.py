@@ -11,6 +11,7 @@ class Game:
 	def addComment(self, user, comment, grade):
 		comment = Comment(game=self, content=comment, grade=grade, user=user)
 		self._comments.append(comment)
+		return True
 
 	def run(self):
 		print(f'run {self._name}')
@@ -20,6 +21,16 @@ class Game:
 
 	def __repr__(self) -> str:
 		return 'name: ' + self._name 
+
+class GameNone(Game):
+	def __init__(self):
+		super().__init__('', '', '')
+
+	def addComment(self, user, comment, grade):
+		return False
+
+	def run(self):
+		pass
 
 class Comment:
 	def __init__(self, content, user : User, game : Game, grade):
