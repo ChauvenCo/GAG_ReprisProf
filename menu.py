@@ -19,7 +19,7 @@ class Menu:
 	def prompt(cls):
 		returnValue = '1. Display games'
 		returnValue += '\n2. Add comment'
-		returnValue += '\n3. Detail game'
+		returnValue += '\n3. Detail store game'
 		returnValue += '\n4. Remove game'
 		returnValue += '\n5. Create game in store'
 		returnValue += '\n6. Delete game from store'
@@ -28,7 +28,6 @@ class Menu:
 		return returnValue
 
 	def detailGame(self):
-		# name = input('name: ')
 		name = self.request.split("_")[1]
 		game_selected = GameNone()
 		for game in self._application._store._games:
@@ -41,9 +40,6 @@ class Menu:
 		return returnValue
 	
 	def addComment(self):
-		# name = input('name: ')
-		# comment = input('comment: ')
-		# grade = input('grade(1..5): ')
 		name = self.request.split("_")[1]
 		comment = self.request.split("_")[2]
 		grade = self.request.split("_")[3]
@@ -57,7 +53,6 @@ class Menu:
 		return "Commentaire ajouté"
 
 	def removeGame(self):
-		# name = input('name: ')
 		name = self.request.split("_")[1]
 		game_to_delete = None
 		for game in self._application._store._games:
@@ -68,7 +63,6 @@ class Menu:
 		return "Jeu retiré"
 	
 	def deleteGame(self):
-		# name = input('name: ')
 		name = self.request.split("_")[1]
 		game_to_delete = None
 		for game in self._application._user._lib._games:
@@ -84,22 +78,17 @@ class Menu:
 		return returnValue
 	
 	def createGame(self):
-		# name = input('name: ')
-		# tag = input('tag: ')
-		# price = input('price: ')
-		# image = input('image: ')
 		name = self.request.split("_")[1]
 		tag = self.request.split("_")[2]
 		price = self.request.split("_")[3]
 		image = self.request.split("_")[4]
-		self._application._store.createGame(name, tag, image, price)
+		self._application._store.createGame(0, name, tag, image, price)
 		return "Jeu ajouté"
 
 	def buyGame(self):
 		returnValue = 'List of games in store'
 		for game in self._application._store._games:
 			returnValue += "\n" + str(game)
-		# name = input('name: ')
 		name = self.request.split("_")[1]
 		self._application._store.buyGame(name, self._application._user)
 		return returnValue

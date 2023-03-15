@@ -26,6 +26,10 @@ if __name__ == '__main__':
     client = Client("127.0.0.1", 8000)
     client.connect()
 
+    print(client.receive())
+    option = input("Choix : ")
+    client.send(option)
+
     option = "0"
     while int(option) != 8:
         print(client.receive())
@@ -49,3 +53,5 @@ if __name__ == '__main__':
 
         client.send(final)
         print(client.receive())
+
+    client.close()

@@ -1,1 +1,36 @@
-{"py/object": "Application.Application", "_store": {"py/object": "store.Store", "_games": {"py/set": [{"py/object": "game.Game", "_name": "Cyber", "_tag": "1", "_image": "1", "_comments": [{"py/object": "game.Comment", "_content": "you fool", "_user": {"py/object": "user.User", "_name": {"py/tuple": ["127.0.0.1", 5152]}, "_lib": {"py/object": "lib.Lib", "_games": {"py/set": [{"py/id": 2}]}}, "_comments": []}, "_game": {"py/id": 2}, "_grade": "3"}], "_price": "1"}]}}, "_user": {"py/id": 5}, "_persist": {"py/object": "persist.PersistJson", "_gagfile": "./gag.json"}}
+{
+  "py/object": "Application.Application", "_store": {"py/object": "store.Store", "_games": {"py/set": [{"py/object": "game.Game", "_name": "Cyber", "_tag": "1", "_image": "1", "_comments": [{"py/object": "game.Comment", "_content": "you fool",
+  "_user": {
+    "py/object": "user.User",
+    "_name": {
+      "py/tuple": [
+        "127.0.0.1",
+        5152
+      ]
+    },
+    "_lib": {
+      "py/object": "lib.Lib",
+      "_games": {
+        "py/set": [
+          {
+            "py/id": 2
+          },
+          {
+            "py/object": "game.Game",
+            "_name": "Elden Ring",
+            "_tag": "1234",
+            "_image": "1234",
+            "_comments": [],
+            "_price": "12",
+          }
+        ]
+      }
+    },
+    "_comments": []
+  },
+  "_game": {
+    "py/id": 2
+  },
+  "_grade": "3"
+}
+], "_price": "1"}, {"py/id": 7}]}}, "_user": {"py/id": 5}, "_persist": {"py/object": "persist.PersistJson", "_gagfile": "./gag.json"}}

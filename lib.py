@@ -1,6 +1,7 @@
 class Lib:
 	def __init__(self):
 		self._games = set()
+		self._id = 0
 	
 	def addGame(self, game):
 		self._games.add(game)

@@ -1,8 +1,5 @@
 class Application:
-    def __init__(self, store, user, persist):
+    def __init__(self, store, user):
         self._store = store
         self._user = user
-        self._persist = persist
 
-    def save(self):
-        self._persist.save(self)

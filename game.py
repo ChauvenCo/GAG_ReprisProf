@@ -1,7 +1,8 @@
 from user import User
 
 class Game:
-	def __init__(self, name, tag, image, price = 0):
+	def __init__(self, ID: int, name, tag, image, price = 0):
+		self.ID = ID
 		self._name = name
 		self._tag = tag
 		self._image = image
@@ -9,7 +10,7 @@ class Game:
 		self._price = price
 
 	def addComment(self, user, comment, grade):
-		comment = Comment(game=self, content=comment, grade=grade, user=user)
+		comment = Comment(ID=0, game=self, content=comment, grade=grade, user=user)
 		self._comments.append(comment)
 		return True
 
@@ -24,7 +25,7 @@ class Game:
 
 class GameNone(Game):
 	def __init__(self):
-		super().__init__('', '', '')
+		super().__init__(0, '', '', '')
 
 	def addComment(self, user, comment, grade):
 		return False
@@ -33,7 +34,8 @@ class GameNone(Game):
 		pass
 
 class Comment:
-	def __init__(self, content, user : User, game : Game, grade):
+	def __init__(self, ID: int, content, user : User, game : Game, grade):
+		self.ID = ID
 		self._content = content
 		self._user = user
 		self._game = game

@@ -2,7 +2,7 @@ from Application import Application
 from store import Store
 from user import User
 from menu import Menu
-from persist import PersistJson
+from persist import *
 import socket
 
 
@@ -33,18 +33,15 @@ class Server:
         self.connexion.close()
         self.socket.close()
 
-
 if __name__ == '__main__':
+    persist = PersistBDD()
+
     server = Server("127.0.0.1", 8000)
     server.launch()
 
-    persist = PersistJson()
-
+    server.send("Avec quel magasin voulez-vous vous connecter : \n1 - Magasin central")
+    persist._idStore = int(server.receive())
     application = persist.load()
-    if application == None:
-        user = User(name=server.adresse_client)
-        store = Store()
-        application = Application(store, user, persist)
 
     menu = Menu(application)
     selection = ""
@@ -53,4 +50,4 @@ if __name__ == '__main__':
         selection = server.receive()
         menu.request = selection
         server.send(menu._main_entries[selection.split("_")[0]]())
-        menu._application.save()
+        persist.save(menu._application)
