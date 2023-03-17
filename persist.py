@@ -64,9 +64,11 @@ class PersistBDD(Persist):
         self.sql = SqlServer("127.0.0.1", "GAG", "sa", "administrateur")
         self.sql.connect()
         self._idStore = 0
+        self._idUser = 0
 
     def close(self):
         self.sql.disconnect()
+
     def save(self, data: Application):
         self.sql.execute_query("DELETE FROM Comment WHERE IdUser = " + str(data._user.Id))
         self.sql.execute_query("DELETE FROM Game WHERE IdStore = " + str(self._idStore))
@@ -108,7 +110,7 @@ class PersistBDD(Persist):
     def load(self):
         data = None
 
-        userReq = self.sql.execute_query("SELECT ID, Name FROM [User]")[0]
+        userReq = self.sql.execute_query(f"SELECT ID, Name FROM [User] WHERE ID = {self._idUser}")[0]
         user = User(userReq[0], userReq[1])
 
         commentsReq = self.sql.execute_query(
