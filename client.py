@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
         final = option
 
-        if int(option) in [1, 2, 3, 4, 5, 6, 7]:
+        if int(option) in [2, 3, 4, 5, 6, 7]:
             name = input("name : ")
             final += "_" + name
 
